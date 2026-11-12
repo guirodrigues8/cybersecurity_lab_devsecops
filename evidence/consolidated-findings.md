@@ -2,15 +2,16 @@
 
 | ID | Vulnerability / Finding | LLM A | LLM B | LLM C | Bandit | Semgrep |
 |---|---|:---:|:---:|:---:|:---:|:---:|
-| F1 | Path traversal / arbitrary file read (`/files`) | ✓ | ✓ | Addressed in proposed code | — | — |
-| F2 | Missing authentication and authorisation on grade updates | ✓ | ✓ | Addressed in proposed code | — | — |
-| F3 | Broken object-level authorisation (BOLA) on student profiles and grades | ✓ | ✓ | Addressed in proposed code | — | — |
-| F4 | Hardcoded Flask secret key | ✓ | ✓ | Still present in proposed code | ✓ | — |
-| F5 | Hardcoded plaintext user passwords | — | ✓ | Still present in proposed code | ✓ | — |
-| F6 | Verbose error disclosure | ✓ | ✓ | Addressed in proposed code | — | — |
-| F7 | Flask debug mode enabled | ✓ | — | Still present in proposed code | ✓ | ✓ |
-| F8 | Application bound to all network interfaces (`0.0.0.0`) | — | — | Still present in proposed code | ✓ | ✓ |
-| F9 | Insufficient input validation on grade updates | — | ✓ | Addressed in proposed code | — | — |
+| F1 | Path traversal / arbitrary file read (`/files`) | ✓ | ✓ | ✓ | — | — |
+| F2 | Missing authentication and authorisation on grade updates | ✓ | ✓ | ✓ | — | — |
+| F3 | Broken Object Level Authorization (BOLA) on student profiles and grades | ✓ | ✓ | ✓ | — | — |
+| F4 | Hardcoded Flask secret key | ✓ | ✓ | — | ✓ | — |
+| F5 | Verbose error disclosure / information disclosure | ✓ | ✓ | ✓ | — | — |
+| F6 | Flask debug mode enabled | ✓ | ✓ | — | ✓ | ✓ |
+| F7 | Application bound to all network interfaces (`0.0.0.0`) | — | — | — | ✓ | ✓ |
+| F8 | Missing authentication on protected endpoints | — | — | ✓ | — | — |
+| F9 | Insufficient input validation on grade updates | — | — | ✓ | — | — |
+| F10 | Hardcoded plaintext user passwords | — | — | — | ✓ | — | 
 
 ### Static Analysis Results
 
@@ -26,3 +27,5 @@
 | Python | 3.10.22 |
 | Bandit | 1.9.4 |
 | Semgrep | 1.183.0 |
+
+**Legend:** ✓ = Finding identified by the tool; — = Finding not identified by the tool.
